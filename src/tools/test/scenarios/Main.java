@@ -1,37 +1,39 @@
-package tools;
+package tools.test.scenarios;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import java.util.Scanner;
 
-import command.CommandManager;
+import tools.CardAbs;
+import tools.PlayAbstraction;
 
 public class Main {
 
 	public static void main(String[] args) {
 		PlayAbstraction play=new PlayAbstraction(shuffle(initialDeck()),1);
 		
-		CommandManager cm=new CommandManager();
-		cm.addCommand("print",(String[] ar) -> {printPlay(play); return new Boolean(true);});
-		cm.addCommand("play", (String[] ar) -> {
-			int index=Integer.parseInt(ar[0]);
-			play.play(index);
-			return new Boolean(true);
-		});
-		cm.addCommand("end",(String[] ar) -> {play.nextTurn();play.draw();return new Boolean(true);});
+		printPlay(play);
+		play.play(1);
+		printPlay(play);
+		System.out.println();
 		
-		try(Scanner s=new Scanner(System.in))
-		{
-			while(true)
-			{
-				String line=s.nextLine();
-				cm.execute(line.split(" "));
-			}
-		}
+		play.nextTurn();
+		play.draw();
+
+		printPlay(play);
+		play.play(1);
+		printPlay(play);
+		System.out.println();
+		
+		play.nextTurn();
+		play.draw();
+		
+		printPlay(play);
+		
+		System.out.println(play.getHandSizeStatistic());
+		System.out.println(play.getPlayOrbsStatistic());
 	}
-	
 
 	public static List<CardAbs> shuffle(List<CardAbs> deck,int seed)
 	{

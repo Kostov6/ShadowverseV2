@@ -40,13 +40,14 @@ public class PlayAbstraction {
 		if(index>=hand.size())
 			return false;
 		
-		CardAbs card=hand.remove(index);
+		CardAbs card=hand.get(index);
 		int cardCost = card.getPlayCost(playPointsThisTurn);
 		if(cardCost>playPointsThisTurn)
 			return false;
 		
+		hand.remove(index);
 		playPointsThisTurn-=cardCost;
-	
+		
 		//add new cards
 		CardAbs[] additional=card.getEffectiveGain();
 		if(additional!=null)
