@@ -4,6 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Card {
+	private int initialCost;
+	private String name;
+	private CardType type;
+	
+	private String cardPack;
+	
+	private List<Effect> cardEffects;
+	private List<Effect> additionalEffects;
+	
+	
 	private int index;
 	
 	public static List<Card> testDeck()
