@@ -84,6 +84,16 @@ public class PlayerEnvironment
 	
 
 	//updaters
+	public boolean play(int index,int[] targets,int[] choices)
+	{
+		
+	}
+	
+	public boolean evolve(int index,int[] targets,int[] choices)
+	{
+		
+	}
+	
 	public void nextTurn()
 	{
 		turn++;
@@ -92,10 +102,30 @@ public class PlayerEnvironment
 		drawFromDeck();
 	}
 	
+	boolean clash()
+	{
+		
+	}
+	
+	void leaderDamage(int ammount)
+	{
+		
+	}
+	
+	void leaderrHeal(int ammount)
+	{
+		
+	}
+	
 	void drawFromDeck()
 	{
 		Card drawn=deck.remove(deck.size()-1);
 		addToHand(drawn);
+	}
+	
+	protected void summonOnField(Card[] cards)
+	{
+		
 	}
 	
 	protected void gainEmptyPP()
