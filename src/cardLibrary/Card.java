@@ -3,7 +3,29 @@ package cardLibrary;
 import java.util.ArrayList;
 import java.util.List;
 
+import cardLibrary.effectLibrary.Effect;
+
 public class Card {
+	private int initialCost;
+	private String name;
+	private CardType type;
+	
+	private String cardPack;
+	
+	private List<Effect> cardEffects;
+	private List<Effect> additionalEffects;
+
+	protected Card(int initialCost, String name, CardType type, String cardPack, List<Effect> cardEffects) {
+		this.initialCost = initialCost;
+		this.name = name;
+		this.type = type;
+		this.cardPack = cardPack;
+		this.cardEffects = cardEffects;
+		this.additionalEffects=new ArrayList<Effect>();
+	}
+	
+
+	/*
 	private int index;
 	
 	public static List<Card> testDeck()
@@ -33,6 +55,6 @@ public class Card {
 	public void setIndex(int index) {
 		this.index = index;
 	}
-	
+	*/
 
 }
