@@ -1,4 +1,4 @@
-package command;
+package engine.command;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,8 +25,11 @@ public class CommandManager {
 		return true;
 	}
 	
-	public Object execute(String[] parts)
+	public Object execute(String command) throws Exception
 	{
+		if(command.equals("~quit"))
+			throw new Exception("Got ~quit command");
+		String[] parts=command.split(" ");
 		String name=parts[0];
 		String[] params=Arrays.copyOfRange(parts, 1, parts.length);
 		for(Command c : commands)
